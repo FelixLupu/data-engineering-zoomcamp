@@ -53,13 +53,16 @@ The script uses `click` for command-line argument parsing:
 import click
 
 @click.command()
-@click.option('--user', default='root', help='PostgreSQL user')
-@click.option('--password', default='root', help='PostgreSQL password')
-@click.option('--host', default='localhost', help='PostgreSQL host')
-@click.option('--port', default=5432, type=int, help='PostgreSQL port')
-@click.option('--db', default='ny_taxi', help='PostgreSQL database name')
-@click.option('--table', default='yellow_taxi_data', help='Target table name')
-def ingest_data(user, password, host, port, db, table):
+@click.option('--pg-user', default='root', help='PostgreSQL username')
+@click.option('--pg-pass', default='root', help='PostgreSQL password')
+@click.option('--pg-host', default='localhost', help='PostgreSQL host')
+@click.option('--pg-port', default=5432, type=int, help='PostgreSQL port')
+@click.option('--pg-db', default='ny_taxi', help='PostgreSQL database name')
+@click.option('--year', default=2021, type=int, help='Year for data')
+@click.option('--month', default=1, type=int, help='Month for data')
+@click.option('--target-table', default='yellow_taxi_data', help='Target table name')
+@click.option('--chunksize', default=100000, type=int, help='Chunk size for reading CSV')
+def run(pg_user, pg_pass, pg_host, pg_port, pg_db, year, month, target_table, chunksize):
     # Ingestion logic here
     pass
 ```
