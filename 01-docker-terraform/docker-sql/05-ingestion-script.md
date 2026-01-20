@@ -77,7 +77,7 @@ uv run python ingest_data.py \
   --pg-host=localhost \
   --pg-port=5432 \
   --pg-db=ny_taxi \
-  --target-table=yellow_taxi_trips
+  --target-table=yellow_taxi_trips_2021_1
   --year=2021 \
   --month=1 \
   --chunksize=100000
